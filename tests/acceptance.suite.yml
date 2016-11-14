@@ -6,14 +6,15 @@
 
 class_name: AcceptanceTester
 modules:
-  enabled:
-    - WPWebDriver
-  config:
-    WPWebDriver:
-      url: 'http://127.0.0.1:8080'
-      browser: phantomjs
-      port: 4444
-      window_size: '1024x768'
-      adminUsername: 'admin'
-      adminPassword: 'admin'
-      adminPath: '/wp-admin'
+    enabled:
+        - WebDriver
+        - \Helper\Acceptance
+    config:
+        WebDriver:
+            url: 'http://127.0.0.1:8080'
+            browser: phantomjs
+            window_size: 1440x900
+            wait: 1
+        \Helper\Acceptance:
+            admin_user: admin
+            admin_pass: admin
