@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "init": "npm install && composer install",
+    "test": "/usr/bin/env node bin/run-tests.js"
+  },
+  "dependencies": {
+    "phantomjs-prebuilt": "^2.1.13"
+  }
+}

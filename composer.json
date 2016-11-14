@@ -1,0 +1,5 @@
+{
+    "require": {
+        "lucatume/wp-browser": "^1.19"
+    }
+}
