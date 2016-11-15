@@ -24,9 +24,7 @@ $ npm run init
 ### Setup WordPress.
 
 ```
-$ export WP_VERSION=latest
-$ export WP_THEME=twentysixteen
-$ export WP_PATH=/tmp/wp-tests
+$ export WP_VERSION=latest WP_THEME=twentysixteen WP_PATH=/tmp/wp-tests
 $ npm run install-wp
 $ ./wp-cli-nightly.phar plugin install https://github.com/miya0001/theme-meta-api/archive/master.zip --activate --path=$WP_PATH
 $ npm run wp
