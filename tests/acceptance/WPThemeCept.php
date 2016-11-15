@@ -5,4 +5,4 @@ $I->wantTo( 'Check the theme specification from tags' );
 
 $theme = $I->seeCurrentTheme();
 $tags = $I->seeTagsFor( $theme );
-$I->canSeeTheThemeSupports( $tags );
+$I->SeeTheThemeSupports( $tags );

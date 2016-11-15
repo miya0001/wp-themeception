@@ -112,6 +112,20 @@ class Acceptance extends \Codeception\Module
 		return true;
 	}
 
+	private function custom_colors( $features )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/wp-admin/customize.php" );
+		$wd->waitForElement( '#customize-theme-controls', 30 );
+		$elements = $wd->_findElements( "#accordion-section-colors" );
+		if ( count( $elements ) ) {
+			return true;
+		} else {
+			$this->fail_not_supported( 'custom-colors' );
+			return false;
+		}
+	}
+
 	private function custom_header( $features )
 	{
 		if ( empty( $features['custom-header'] ) ) {
@@ -134,6 +148,15 @@ class Acceptance extends \Codeception\Module
 	{
 		if ( empty( $features['custom-logo'] ) ) {
 			$this->fail_not_supported( 'custom-logo' );
+			return false;
+		}
+		return true;
+	}
+
+	private function editor_style( $features )
+	{
+		if ( empty( $features['editor-style'] ) ) {
+			$this->fail_not_supported( 'editor-style' );
 			return false;
 		}
 		return true;
@@ -164,6 +187,46 @@ class Acceptance extends \Codeception\Module
 			return false;
 		}
 		return true;
+	}
+
+	private function sticky_post( $features )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/" );
+		$elements = $wd->_findElements( ".post.type-post.sticky" );
+		if ( count( $elements ) ) {
+			return true;
+		} else {
+			$this->fail_not_supported( 'custom-colors' );
+			return false;
+		}
+	}
+
+	private function threaded_comments( $features )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/wp-admin/options-discussion.php" );
+		$elements = $wd->_findElements( "#thread_comments" );
+		if ( count( $elements ) ) {
+			return true;
+		} else {
+			$this->fail_not_supported( 'custom-colors' );
+			return false;
+		}
+	}
+
+	private function translation_ready( $features )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/theme-meta/" );
+		$source = $wd->webDriver->findElements( WebDriverBy::tagName('body') );
+		$metas = json_decode( $source[0]->getText(), true );
+		if ( ! empty( $metas["textdomain"] ) ) {
+			return true;
+		} else {
+			$this->fail_not_supported( 'translation-ready' );
+			return false;
+		}
 	}
 
 	private function fail_not_supported( $feature_name )

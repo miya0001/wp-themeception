@@ -2785,7 +2785,7 @@ trait AcceptanceTesterActions
      * Conditional Assertion: Test won't be stopped on fail
      * @see \Helper\Acceptance::seeTheThemeSupports()
      */
-    public function canSeeTheThemeSupports($tag) {
+    public function canSeeTheThemeSupports($tags) {
         return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTheThemeSupports', func_get_args()));
     }
     /**
@@ -2797,7 +2797,7 @@ trait AcceptanceTesterActions
 	 * @return none
      * @see \Helper\Acceptance::seeTheThemeSupports()
      */
-    public function seeTheThemeSupports($tag) {
+    public function seeTheThemeSupports($tags) {
         return $this->getScenario()->runStep(new \Codeception\Step\Assertion('seeTheThemeSupports', func_get_args()));
     }
 }
