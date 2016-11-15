@@ -1,9 +1,11 @@
 <?php
 
 $I = new AcceptanceTester($scenario);
-$I->wantTo('perform actions and see result');
+$I->wantTo( 'Check the theme specification from tags' );
 
-$theme = $I->getCurrentTheme();
-$tags = $I->getThemeTags( $theme );
+$theme = $I->seeCurrentTheme();
+$tags = $I->seeTagsFor( $theme );
 
-var_dump( $tags );
+foreach ( $tags as $tag ) {
+	$I->canSeeTheThemeSupports( $tag );
+}

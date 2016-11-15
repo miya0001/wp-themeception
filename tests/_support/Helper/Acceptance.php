@@ -2,12 +2,17 @@
 
 namespace Helper;
 
-// here you can define custom actions
-// all public methods declared in helper class will be available in $I
+use Codeception\Lib\Console\Output;
 
 class Acceptance extends \Codeception\Module
 {
-	public function getCurrentTheme()
+	/**
+	 * Get the current theme.
+	 *
+	 * @param  none
+	 * @return string The slug of the current theme.
+	 */
+	public function seeCurrentTheme()
 	{
 		$config = $this->config;
 
@@ -19,10 +24,22 @@ class Acceptance extends \Codeception\Module
 
 		$wd->amOnPage( "/wp-admin/themes.php" );
 
-		return $wd->grabAttributeFrom( ".theme.active:first-child", "data-slug" );
+		$theme = $wd->grabAttributeFrom( ".theme.active:first-child", "data-slug" );
+		$this->ok( sprintf(
+			"Current theme is \"%s\".",
+			$theme
+		) );
+
+		return $theme;
 	}
 
-	public function getThemeTags( $slug )
+	/**
+	 * Get the current theme.
+	 *
+	 * @param  string $slug The $slug of the theme.
+	 * @return array        The array of the tags in style.css.
+	 */
+	public function seeTagsFor( $slug )
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/wp-content/themes/" . $slug ."/style.css" );
@@ -36,9 +53,75 @@ class Acceptance extends \Codeception\Module
 			}
 		}
 
+		$this->assertTrue( !! $tag_line, "Style.css doesn't have tags in the file header." );
+
 		$tag_line = trim( preg_replace( "/^( *\* *)?Tags:/", "", $tag_line ) );
 		$tags = array_map('trim', preg_split( "/,/", $tag_line ) );
+		$this->assertTrue( !! $tag_line, "Style.css doesn't have tags in the file header." );
+
+		$tags_formatted = array_map( function( $tag ){
+			return "* " . $tag;
+		}, $tags );
+		$this->ok( $tags_formatted );
 
 		return $tags;
+	}
+
+	/**
+	 * Check that does the theme support the specification as tag.
+	 *
+	 * @param  string $tag The $tag of the theme.
+	 * @return none
+	 */
+	public function seeTheThemeSupports( $tag )
+	{
+		$method = preg_replace( "/\W/", "_", $tag );
+		if ( method_exists( $this, $method ) ) {
+			return $this->$method();
+		} else {
+			$this->pending( "No tests defined" );
+		}
+	}
+
+	private function custom_background()
+	{
+		$wd = $this->getModule('WebDriver');
+		$this->ok( "OK" );
+	}
+
+	/**
+	 * Print message.
+	 *
+	 * @param  string | array $messages The message.
+	 * @return none
+	 */
+	private function ok( $messages )
+	{
+		$output = new Output( array() );
+		if ( is_array( $messages ) ) {
+			foreach ( $messages as $message ) {
+				$output->writeln("<ok>  $message</ok>");
+			}
+		} else {
+			$output->writeln("<ok>  $messages</ok>");
+		}
+	}
+
+	/**
+	 * Print pending message.
+	 *
+	 * @param  string | array $messages The message.
+	 * @return none
+	 */
+	private function pending( $messages )
+	{
+		$output = new Output( array() );
+		if ( is_array( $messages ) ) {
+			foreach ( $messages as $message ) {
+				$output->writeln("<pending>  $message</pending>");
+			}
+		} else {
+			$output->writeln("<pending>  $messages</pending>");
+		}
 	}
 }
