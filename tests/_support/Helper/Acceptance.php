@@ -83,10 +83,29 @@ class Acceptance extends \Codeception\Module
 		}
 	}
 
+	private function flexible_header()
+	{
+		$this->ok( "OK" );
+	}
+
 	private function custom_background()
 	{
-		$wd = $this->getModule('WebDriver');
+		$this->have_feature( '#accordion-section-background_image' );
 		$this->ok( "OK" );
+	}
+
+	/**
+	 * Check theme customizer has the feature
+	 *
+	 * @param  string $element The css selector of the customizer feature.
+	 * @return none
+	 */
+	private function have_feature( $element )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/wp-admin/customize.php" );
+		$wd->waitForElement( '#customize-theme-controls', 30 );
+		$wd->seeElementInDOM( $element );
 	}
 
 	/**
