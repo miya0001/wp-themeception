@@ -202,6 +202,20 @@ class Acceptance extends \Codeception\Module
 		}
 	}
 
+	private function theme_options( $features )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/wp-admin/customize.php" );
+		$wd->waitForElement( '#customize-theme-controls', 30 );
+		$elements = $wd->_findElements( ".control-section" );
+		if ( count( $elements ) ) {
+			return true;
+		} else {
+			$this->fail_not_supported( 'theme-options' );
+			return false;
+		}
+	}
+
 	private function threaded_comments( $features )
 	{
 		$wd = $this->getModule('WebDriver');

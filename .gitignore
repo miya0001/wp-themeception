@@ -3,3 +3,4 @@ npm-debug.log
 tests/_output/
 vendor/
 tests/_output/*
+wp-cli-nightly.phar
