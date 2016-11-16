@@ -7,6 +7,36 @@ use Codeception\Lib\Console\Output;
 class Acceptance extends \Codeception\Module
 {
 	/**
+	 * Get the WordPress version.
+	 *
+	 * @param  none
+	 * @return string The slug of the current theme.
+	 */
+	public function seeWpVersion()
+	{
+		$config = $this->config;
+
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( "/" );
+		$source = $wd->_findElements( "meta[name=generator]" );
+		$this->assertTrue( !! count( $source ), "Can't get WordPress version." );
+
+		$version = $source[0]->getAttribute("content");
+		$this->assertTrue( !! $version, "Can't get WordPress version." );
+
+		$version = preg_replace( "/WordPress /", "", $version );
+		$version = trim( $version );
+		$this->assertTrue( !! $version, "Can't get WordPress version." );
+
+		$this->ok( sprintf(
+			"WordPress version is %s.",
+			$version
+		) );
+
+		return $version;
+	}
+
+	/**
 	 * Get the current theme.
 	 *
 	 * @param  none
