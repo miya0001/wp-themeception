@@ -13,6 +13,12 @@ Lists tags from current theme and check the theme that has thoese features.
 
 It is one of the automated theme review projects.
 
+## How it works
+
+* Install and activate the theme you want to test.
+* Install [Theme Meta API](https://github.com/miya0001/theme-meta-api) plugin that enables you to get metadata of the theme as JSON API.
+* Run Codeception/WebDriver and PhantomJS based tests.
+
 ## Getting Started
 
 ### Install dependencies.
