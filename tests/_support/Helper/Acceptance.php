@@ -226,7 +226,7 @@ class Acceptance extends \Codeception\Module
 		if ( count( $elements ) ) {
 			return true;
 		} else {
-			$this->fail_not_supported( 'custom-colors' );
+			$this->fail_not_supported( 'sticky-post' );
 			return false;
 		}
 	}
