@@ -13,6 +13,46 @@ Lists tags from current theme and check the theme that has thoese features.
 
 It is one of the automated theme review projects.
 
+## Tags that this project can test
+
+* [ ] one-column
+* [ ] two-column
+* [ ] three-columns
+* [ ] four-columns
+* [ ] left-sidebar
+* [ ] right-sidebar
+* [ ] grid-layout
+* [x] flexible-header
+* [ ] accessibility-ready
+* [ ] buddypress
+* [x] custom-background
+* [x] custom-colors
+* [x] custom-header
+* [x] custom-menu
+* [x] custom-logo
+* [x] editor-style
+* [x] featured-image-header
+* [x] featured-images
+* [ ] footer-widgets
+* [ ] front-page-post-form
+* [ ] full-width-template
+* [ ] microformats
+* [x] post-formats
+* [ ] rtl-language-support
+* [x] sticky-post
+* [x] theme-options
+* [x] threaded-comments
+* [x] translation-ready
+* [ ] blog
+* [ ] e-commerce
+* [ ] education
+* [ ] entertainment
+* [ ] food-and-drink
+* [ ] holiday
+* [ ] news
+* [ ] photography
+* [ ] portfolio
+
 ## How it works
 
 * Install and activate the theme you want to test.
