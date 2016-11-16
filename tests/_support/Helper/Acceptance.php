@@ -3,7 +3,6 @@
 namespace Helper;
 
 use Codeception\Lib\Console\Output;
-use Facebook\WebDriver\WebDriverBy;
 
 class Acceptance extends \Codeception\Module
 {
@@ -44,7 +43,7 @@ class Acceptance extends \Codeception\Module
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/theme-tags/" );
-		$source = $wd->webDriver->findElements( WebDriverBy::tagName('body') );
+		$source = $wd->_findElements( "body" );
 		$tags = json_decode( $source[0]->getText() );
 
 		$tags_formatted = array_map( function( $tag ){
@@ -65,7 +64,7 @@ class Acceptance extends \Codeception\Module
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/theme-features/" );
-		$source = $wd->webDriver->findElements( WebDriverBy::tagName('body') );
+		$source = $wd->_findElements( "body" );
 		$features = json_decode( $source[0]->getText(), true );
 
 		$error = false;
@@ -233,7 +232,7 @@ class Acceptance extends \Codeception\Module
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/theme-meta/" );
-		$source = $wd->webDriver->findElements( WebDriverBy::tagName('body') );
+		$source = $wd->_findElements( "body" );
 		$metas = json_decode( $source[0]->getText(), true );
 		if ( ! empty( $metas["textdomain"] ) ) {
 			return true;
