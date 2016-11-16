@@ -234,7 +234,7 @@ class Acceptance extends \Codeception\Module
 		$wd->amOnPage( "/theme-meta/" );
 		$source = $wd->_findElements( "body" );
 		$metas = json_decode( $source[0]->getText(), true );
-		if ( ! empty( $metas["textdomain"] ) ) {
+		if ( ! empty( $metas["textdomain"] ) && ! empty( $metas["is_textdomain_loaded"] ) ) {
 			return true;
 		} else {
 			$this->fail_not_supported( 'translation-ready' );
