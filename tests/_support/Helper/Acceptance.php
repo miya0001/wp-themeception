@@ -18,10 +18,7 @@ class Acceptance extends \Codeception\Module
 
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/" );
-		$source = $wd->_findElements( "meta[name=generator]" );
-		$this->assertTrue( !! count( $source ), "Can't get WordPress version." );
-
-		$version = $source[0]->getAttribute("content");
+		$version = $wd->grabAttributeFrom( "meta[name=generator]", "content" );
 		$this->assertTrue( !! $version, "Can't get WordPress version." );
 
 		$version = preg_replace( "/WordPress /", "", $version );
