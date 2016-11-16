@@ -16,7 +16,6 @@ before_install:
   - npm run init
   - npm run install-wp
   - npm run wp >/dev/null 2>&1 &
-  - ./wp-cli-nightly.phar plugin install https://github.com/miya0001/theme-meta-api/archive/master.zip --activate --path=$WP_PATH
 
 script:
   - npm test
