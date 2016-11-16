@@ -2780,12 +2780,11 @@ trait AcceptanceTesterActions
      *
      * Get the current theme.
 	 *
-	 * @param  string $slug The $slug of the theme.
 	 * @return array        The array of the tags in style.css.
      * Conditional Assertion: Test won't be stopped on fail
      * @see \Helper\Acceptance::seeTagsFor()
      */
-    public function canSeeTagsFor($slug) {
+    public function canSeeTagsFor() {
         return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTagsFor', func_get_args()));
     }
     /**
@@ -2793,11 +2792,10 @@ trait AcceptanceTesterActions
      *
      * Get the current theme.
 	 *
-	 * @param  string $slug The $slug of the theme.
 	 * @return array        The array of the tags in style.css.
      * @see \Helper\Acceptance::seeTagsFor()
      */
-    public function seeTagsFor($slug) {
+    public function seeTagsFor() {
         return $this->getScenario()->runStep(new \Codeception\Step\Assertion('seeTagsFor', func_get_args()));
     }
 
@@ -2807,12 +2805,11 @@ trait AcceptanceTesterActions
      *
      * Check that does the theme support the specification as tag.
 	 *
-	 * @param  string $tag The $tag of the theme.
 	 * @return none
      * Conditional Assertion: Test won't be stopped on fail
      * @see \Helper\Acceptance::seeTheThemeSupports()
      */
-    public function canSeeTheThemeSupports($tags) {
+    public function canSeeTheThemeSupports() {
         return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeTheThemeSupports', func_get_args()));
     }
     /**
@@ -2820,11 +2817,10 @@ trait AcceptanceTesterActions
      *
      * Check that does the theme support the specification as tag.
 	 *
-	 * @param  string $tag The $tag of the theme.
 	 * @return none
      * @see \Helper\Acceptance::seeTheThemeSupports()
      */
-    public function seeTheThemeSupports($tags) {
+    public function seeTheThemeSupports() {
         return $this->getScenario()->runStep(new \Codeception\Step\Assertion('seeTheThemeSupports', func_get_args()));
     }
 }

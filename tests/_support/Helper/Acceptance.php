@@ -30,7 +30,7 @@ class Acceptance extends \Codeception\Module
 			$version
 		) );
 
-		return $version;
+		$this->vars['version'] = $version;
 	}
 
 	/**
@@ -52,42 +52,44 @@ class Acceptance extends \Codeception\Module
 		$wd->amOnPage( "/wp-admin/themes.php" );
 
 		$theme = $wd->grabAttributeFrom( ".theme.active:first-child", "data-slug" );
+		$this->assertTrue( !! $theme );
 		$this->ok( sprintf(
 			"Current theme is \"%s\".",
 			$theme
 		) );
 
-		return $theme;
+		$this->vars['current_theme'] = $theme;
 	}
 
 	/**
 	 * Get the current theme.
 	 *
-	 * @param  string $slug The $slug of the theme.
 	 * @return array        The array of the tags in style.css.
 	 */
-	public function seeTagsFor( $slug )
+	public function seeTagsFor()
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/theme-tags/" );
 		$source = $wd->_findElements( "body" );
+		$this->assertTrue( !! $source );
+
 		$tags = json_decode( $source[0]->getText() );
+		$this->assertTrue( !! $tags );
 
 		$tags_formatted = array_map( function( $tag ){
 			return "* " . $tag;
 		}, $tags );
 		$this->ok( $tags_formatted );
 
-		return $tags;
+		$this->vars['tags'] = $tags;
 	}
 
 	/**
 	 * Check that does the theme support the specification as tag.
 	 *
-	 * @param  string $tag The $tag of the theme.
 	 * @return none
 	 */
-	public function seeTheThemeSupports( $tags )
+	public function seeTheThemeSupports()
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/theme-features/" );
@@ -95,7 +97,7 @@ class Acceptance extends \Codeception\Module
 		$features = json_decode( $source[0]->getText(), true );
 
 		$error = false;
-		foreach ( $tags as $feature ) {
+		foreach ( $this->vars['tags'] as $feature ) {
 			$func_name = preg_replace( "/\W/", "_", $feature );
 			if ( method_exists( $this, $func_name ) ) {
 				if ( $this->$func_name( $features ) ) {
