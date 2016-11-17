@@ -2724,7 +2724,9 @@ trait AcceptanceTesterActions
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     *
+     * Check the page is not have javascript error.
+	 *
+	 * @param none
      * Conditional Assertion: Test won't be stopped on fail
      * @see \Helper\Acceptance::dontSeeJsErrors()
      */
@@ -2734,7 +2736,9 @@ trait AcceptanceTesterActions
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     *
+     * Check the page is not have javascript error.
+	 *
+	 * @param none
      * @see \Helper\Acceptance::dontSeeJsErrors()
      */
     public function dontSeeJsErrors() {
@@ -2745,7 +2749,9 @@ trait AcceptanceTesterActions
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     *
+     * Check the page is not 404.
+	 *
+	 * @param none
      * Conditional Assertion: Test won't be stopped on fail
      * @see \Helper\Acceptance::dontSee404()
      */
@@ -2755,7 +2761,9 @@ trait AcceptanceTesterActions
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
-     *
+     * Check the page is not 404.
+	 *
+	 * @param none
      * @see \Helper\Acceptance::dontSee404()
      */
     public function dontSee404() {
@@ -2768,7 +2776,7 @@ trait AcceptanceTesterActions
      *
      * Check the page displays warning or notice.
 	 *
-	 * @param string $url The url to check.
+	 * @param  none
      * Conditional Assertion: Test won't be stopped on fail
      * @see \Helper\Acceptance::dontSeeNotice()
      */
@@ -2780,7 +2788,7 @@ trait AcceptanceTesterActions
      *
      * Check the page displays warning or notice.
 	 *
-	 * @param string $url The url to check.
+	 * @param  none
      * @see \Helper\Acceptance::dontSeeNotice()
      */
     public function dontSeeNotice() {
