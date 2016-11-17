@@ -108,7 +108,7 @@ class Acceptance extends \Codeception\Module
 	/**
 	 * Get the current theme.
 	 */
-	public function seeTagsFor()
+	public function seeTags()
 	{
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/theme-tags/" );
@@ -117,11 +117,6 @@ class Acceptance extends \Codeception\Module
 
 		$tags = json_decode( $source[0]->getText() );
 		$this->assertTrue( !! $tags );
-
-		$tags_formatted = array_map( function( $tag ){
-			return "* " . $tag;
-		}, $tags );
-		$this->ok( $tags_formatted );
 
 		$this->vars['tags'] = $tags;
 	}
@@ -147,7 +142,7 @@ class Acceptance extends \Codeception\Module
 				}
 			} else {
 				$this->pending( sprintf(
-					"%s: No tests defined",
+					"[ ] %s",
 					$feature
 				) );
 			}
@@ -314,7 +309,7 @@ class Acceptance extends \Codeception\Module
 	private function fail_not_supported( $feature_name )
 	{
 		$this->error( sprintf(
-			'%1$s: Theme does not support "%1$s".',
+			'[x] %1$s: Theme does not support "%1$s".',
 			$feature_name
 		) );
 	}
@@ -322,7 +317,7 @@ class Acceptance extends \Codeception\Module
 	private function passed( $feature_name )
 	{
 		$this->ok( sprintf(
-			"%s: OK",
+			"[✓] %s",
 			$feature_name
 		) );
 	}

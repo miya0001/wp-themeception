@@ -47,5 +47,5 @@ $I->cantSeeJsErrors();
 
 echo " ---\n";
 
-$I->seeTagsFor();
+$I->seeTags();
 $I->SeeTheThemeSupports();
