@@ -15,9 +15,10 @@ It is one of the automated theme review projects.
 
 ## How it works
 
-* Install and activate the theme you want to test.
-* Install [Theme Review Helper](https://github.com/miya0001/theme-review-helper) plugin that provides JSON API of metadata for the theme.
-* Run Codeception/WebDriver and PhantomJS based tests.
+* Installs and starts WordPress with `wp server`.
+* Installs and activate the theme you want to test.
+* Installs [Theme Review Helper](https://github.com/miya0001/theme-review-helper) plugin that provides JSON API of metadata for the theme.
+* Runs Codeception/WebDriver and PhantomJS based tests.
 
 ## What is it testing?
 
