@@ -74,4 +74,4 @@ if [ $WP_THEME ]; then
   ./wp-cli-nightly.phar theme install $WP_THEME --activate --path=$WP_PATH --force
 fi
 
-./wp-cli-nightly.phar plugin install https://github.com/miya0001/theme-meta-api/archive/master.zip --activate --path=$WP_PATH
+./wp-cli-nightly.phar plugin install https://github.com/miya0001/theme-review-helper/archive/master.zip --activate --path=$WP_PATH

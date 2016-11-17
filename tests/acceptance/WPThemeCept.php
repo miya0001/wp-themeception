@@ -1,15 +1,26 @@
 <?php
 
 $I = new AcceptanceTester($scenario);
-$I->wantTo( 'Check the theme specification from tags' );
+$I->wantTo( 'Reviewing the theme.' );
 
+$I->seeWpVersion();
+$I->seeCurrentTheme();
 
-$I->dontSeeNoticeOn( "/" );
-$I->dontSeeNoticeOn( "/wp-admin/" );
-$I->dontSeeNoticeOn( "/wp-admin/themes.php" );
-$I->dontSeeNoticeOn( "/wp-admin/customize.php" );
-$I->dontSeeNoticeOn( "/wp-admin/widgets.php" );
-$I->dontSeeNoticeOn( "/wp-admin/nav-menus.php" );
+$pages = array(
+	"/",
+	"/wp-admin/",
+	"/wp-admin/themes.php",
+	"/wp-admin/customize.php",
+	"/wp-admin/widgets.php",
+	"/wp-admin/nav-menus.php",
+);
+
+foreach ( $pages as $page ) {
+	echo " ---\n";
+	$I->amOnPage( $page );
+	$I->dontSeeNotice();
+	$I->cantSeeJsErrors();
+}
 
 $pages = array(
 	"/?name=template-sticky",
@@ -21,13 +32,20 @@ $pages = array(
 );
 
 foreach ( $pages as $page ) {
-	$I->cantSee404( $page );
-	$I->cantSeeNoticeOn( $page );
+	echo " ---\n";
+	$I->amOnPage( $page );
+	$I->cantSee404();
+	$I->cantSeeNotice();
+	$I->cantSeeJsErrors();
 }
 
-$I->cantSeeNoticeOn( "/this-test-is-checking-on-404" );
+echo " ---\n";
 
-$I->seeWpVersion();
-$I->seeCurrentTheme();
+$I->amOnPage( "/this-test-is-checking-on-404" );
+$I->cantSeeNotice();
+$I->cantSeeJsErrors();
+
+echo " ---\n";
+
 $I->seeTagsFor();
 $I->SeeTheThemeSupports();

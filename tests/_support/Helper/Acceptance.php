@@ -6,6 +6,27 @@ use Codeception\Lib\Console\Output;
 
 class Acceptance extends \Codeception\Module
 {
+	/**
+	 * Check the page is not have javascript error.
+	 *
+	 * @param none
+	 */
+	public function dontSeeJsErrors()
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->wait( 3 );
+		$error = $wd->grabAttributeFrom( "body", "data-jserror" );
+		$this->assertFalse(
+			!! $error,
+			$error
+		);
+	}
+
+	/**
+	 * Check the page is not 404.
+	 *
+	 * @param none
+	 */
 	public function dontSee404()
 	{
 		$wd = $this->getModule('WebDriver');
@@ -14,37 +35,27 @@ class Acceptance extends \Codeception\Module
 			!! $body,
 			"404 not found"
 		);
-		$this->ok( "OK" );
 	}
 
 	/**
 	 * Check the page displays warning or notice.
 	 *
-	 * @param string $url The url to check.
+	 * @param  none
 	 */
-	public function dontSeeNoticeOn( $url )
+	public function dontSeeNotice()
 	{
 		$wd = $this->getModule('WebDriver');
-		$wd->amOnPage( $url );
 		$body = $wd->_findElements( "body" );
 		$text = $body[0]->getText();
 
 		$this->assertFalse(
 			( 0 === stripos( $text, "Notice:" ) ),
-			sprintf(
-				'There is a Notice on "%s".',
-				$url
-			)
+			'There is a Notice on "%s".'
 		);
 		$this->assertFalse(
 			( 0 === stripos( $text, "Warning:" ) ),
-			sprintf(
-				'There is a Warning on "%s".',
-				$url
-			)
+			'There is a Warning on "%s".'
 		);
-
-		$this->ok( "OK" );
 	}
 
 	/**
