@@ -13,7 +13,19 @@ Lists tags from current theme and check the theme that has thoese features.
 
 It is one of the automated theme review projects.
 
-## Tags that this project can test
+## How it works
+
+* Install and activate the theme you want to test.
+* Install [Theme Meta API](https://github.com/miya0001/theme-meta-api) plugin that provides JSON API of metadata for the theme.
+* Run Codeception/WebDriver and PhantomJS based tests.
+
+## What is it testing?
+
+* Captures waning and notice of PHP.
+* Captures JavaScript errors.
+* Gets tags from `style.css` and check those features are available in the theme.
+
+### Supported tags
 
 * [ ] one-column
 * [ ] two-column
@@ -52,12 +64,6 @@ It is one of the automated theme review projects.
 * [ ] news
 * [ ] photography
 * [ ] portfolio
-
-## How it works
-
-* Install and activate the theme you want to test.
-* Install [Theme Meta API](https://github.com/miya0001/theme-meta-api) plugin that provides JSON API of metadata for the theme.
-* Run Codeception/WebDriver and PhantomJS based tests.
 
 ## Getting Started
 
