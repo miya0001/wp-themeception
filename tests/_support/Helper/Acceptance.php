@@ -6,11 +6,51 @@ use Codeception\Lib\Console\Output;
 
 class Acceptance extends \Codeception\Module
 {
+	public function dontSee404()
+	{
+		$wd = $this->getModule('WebDriver');
+		$body = $wd->_findElements( "body.error404" );
+		$this->assertFalse(
+			!! $body,
+			"404 not found"
+		);
+		$this->ok( "OK" );
+	}
+
+	/**
+	 * Check the page displays warning or notice.
+	 *
+	 * @param string $url The url to check.
+	 */
+	public function dontSeeNoticeOn( $url )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( $url );
+		$body = $wd->_findElements( "body" );
+		$text = $body[0]->getText();
+
+		$this->assertFalse(
+			( 0 === stripos( $text, "Notice:" ) ),
+			sprintf(
+				'There is a Notice on "%s".',
+				$url
+			)
+		);
+		$this->assertFalse(
+			( 0 === stripos( $text, "Warning:" ) ),
+			sprintf(
+				'There is a Warning on "%s".',
+				$url
+			)
+		);
+
+		$this->ok( "OK" );
+	}
+
 	/**
 	 * Get the WordPress version.
 	 *
 	 * @param  none
-	 * @return string The slug of the current theme.
 	 */
 	public function seeWpVersion()
 	{
@@ -25,10 +65,7 @@ class Acceptance extends \Codeception\Module
 		$version = trim( $version );
 		$this->assertTrue( !! $version, "Can't get WordPress version." );
 
-		$this->ok( sprintf(
-			"WordPress version is %s.",
-			$version
-		) );
+		$this->ok( $version );
 
 		$this->vars['version'] = $version;
 	}
@@ -37,7 +74,6 @@ class Acceptance extends \Codeception\Module
 	 * Get the current theme.
 	 *
 	 * @param  none
-	 * @return string The slug of the current theme.
 	 */
 	public function seeCurrentTheme()
 	{
@@ -53,18 +89,13 @@ class Acceptance extends \Codeception\Module
 
 		$theme = $wd->grabAttributeFrom( ".theme.active:first-child", "data-slug" );
 		$this->assertTrue( !! $theme );
-		$this->ok( sprintf(
-			"Current theme is \"%s\".",
-			$theme
-		) );
+		$this->ok( $theme );
 
 		$this->vars['current_theme'] = $theme;
 	}
 
 	/**
 	 * Get the current theme.
-	 *
-	 * @return array        The array of the tags in style.css.
 	 */
 	public function seeTagsFor()
 	{
@@ -86,8 +117,6 @@ class Acceptance extends \Codeception\Module
 
 	/**
 	 * Check that does the theme support the specification as tag.
-	 *
-	 * @return none
 	 */
 	public function seeTheThemeSupports()
 	{
