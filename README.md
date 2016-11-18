@@ -1,6 +1,6 @@
 # WP Themeception
 
-[![Build Status](https://travis-ci.org/miya0001/wp-theme-spec.svg?branch=master)](https://travis-ci.org/miya0001/wp-theme-spec)
+[![Build Status](https://travis-ci.org/miya0001/wp-themecept.svg?branch=master)](https://travis-ci.org/miya0001/wp-themecept)
 
 Check the specification of the WordPress theme.
 
@@ -98,4 +98,4 @@ Other environment variables:
 $ npm test
 ```
 
-See example at [https://travis-ci.org/miya0001/wp-theme-spec](https://travis-ci.org/miya0001/wp-theme-spec).
+See example at [https://travis-ci.org/miya0001/wp-themecept](https://travis-ci.org/miya0001/wp-themecept).
