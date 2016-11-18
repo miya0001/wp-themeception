@@ -76,10 +76,16 @@ $ npm run init
 
 ### Setup WordPress.
 
+Load environment variables:
+
 ```
-$ export WP_VERSION=latest WP_THEME=twentysixteen WP_PATH=/tmp/wp-tests
-$ npm run install-wp
-$ npm run wp
+$ export WP_VERSION=latest WP_THEME=twentysixteen WP_PATH=/tmp/wp-tests WP_ERROR_LOG=/tmp/wp-error.log
+```
+
+Or
+
+```
+$ source ./.envrc
 ```
 
 Other environment variables:
@@ -91,6 +97,13 @@ Other environment variables:
 | `WP_PATH`    | Path to the Document Root. Default is `/tmp/wp-tests`.     |
 | `WP_PORT`    | The port number to bind the server to. Default is `8080`.  |
 | `DB_PASS`    | MySQL root password. Default is empty.                     |
+
+Install WordPress and run `wp server`.
+
+```
+$ npm run install-wp
+$ npm run wp
+```
 
 ### Run tests.
 
