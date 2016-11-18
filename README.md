@@ -98,7 +98,7 @@ Other environment variables:
 | `WP_PORT`    | The port number to bind the server to. Default is `8080`.  |
 | `DB_PASS`    | MySQL root password. Default is empty.                     |
 
-Install WordPress and run `wp server`.
+Install WordPress and run `wp server`:
 
 ```
 $ npm run install-wp
