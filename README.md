@@ -1,4 +1,4 @@
-# WP Themeception
+# wp-themeception
 
 [![Build Status](https://travis-ci.org/miya0001/wp-themeception.svg?branch=master)](https://travis-ci.org/miya0001/wp-themeception)
 
