@@ -1,3 +1,4 @@
+acceptance.suite.yml
 node_modules/
 npm-debug.log
 tests/_output/

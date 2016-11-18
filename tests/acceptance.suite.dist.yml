@@ -11,7 +11,7 @@ modules:
         - \Helper\Acceptance
     config:
         WebDriver:
-            url: 'http://vccw.dev'
+            url: 'http://127.0.0.1:8080'
             browser: phantomjs
             window_size: 1440x900
             wait: 1

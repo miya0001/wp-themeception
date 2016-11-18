@@ -14,7 +14,7 @@ class Acceptance extends \Codeception\Module
 	public function dontSeeImgErrors()
 	{
 		$wd = $this->getModule('WebDriver');
-		$wd->wait( 3 );
+		$wd->wait( 1 );
 		$error = $wd->grabAttributeFrom( "body", "data-imgerror" );
 		$this->assertFalse(
 			!! $error,
@@ -30,7 +30,7 @@ class Acceptance extends \Codeception\Module
 	public function dontSeeJsErrors()
 	{
 		$wd = $this->getModule('WebDriver');
-		$wd->wait( 3 );
+		$wd->wait( 1 );
 		$error = $wd->grabAttributeFrom( "body", "data-jserror" );
 		$this->assertFalse(
 			!! $error,
