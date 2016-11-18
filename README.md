@@ -1,4 +1,4 @@
-# WP Theme Spec
+# WP Themeception
 
 [![Build Status](https://travis-ci.org/miya0001/wp-theme-spec.svg?branch=master)](https://travis-ci.org/miya0001/wp-theme-spec)
 
