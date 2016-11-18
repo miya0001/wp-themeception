@@ -14,4 +14,5 @@ fi
 --host=0.0.0.0 \
 --port=$WP_PORT \
 --docroot=$WP_PATH \
---path=$WP_PATH
+--path=$WP_PATH \
+--config=bin/php.ini
