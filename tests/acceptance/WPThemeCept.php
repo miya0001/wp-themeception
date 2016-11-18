@@ -20,6 +20,7 @@ foreach ( $pages as $page ) {
 	$I->amOnPage( $page );
 	$I->dontSeeNotice();
 	$I->cantSeeJsErrors();
+	$I->cantSeeImgErrors();
 }
 
 $pages = array(
@@ -37,6 +38,7 @@ foreach ( $pages as $page ) {
 	$I->cantSee404();
 	$I->cantSeeNotice();
 	$I->cantSeeJsErrors();
+	$I->cantSeeImgErrors();
 }
 
 echo " ---\n";
@@ -44,6 +46,7 @@ echo " ---\n";
 $I->amOnPage( "/this-test-is-checking-on-404" );
 $I->cantSeeNotice();
 $I->cantSeeJsErrors();
+$I->cantSeeImgErrors();
 
 echo " ---\n";
 

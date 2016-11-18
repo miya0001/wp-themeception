@@ -7,6 +7,22 @@ use Codeception\Lib\Console\Output;
 class Acceptance extends \Codeception\Module
 {
 	/**
+	 * Check the page is not have image not found error.
+	 *
+	 * @param none
+	 */
+	public function dontSeeImgErrors()
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->wait( 3 );
+		$error = $wd->grabAttributeFrom( "body", "data-imgerror" );
+		$this->assertFalse(
+			!! $error,
+			$error
+		);
+	}
+
+	/**
 	 * Check the page is not have javascript error.
 	 *
 	 * @param none
