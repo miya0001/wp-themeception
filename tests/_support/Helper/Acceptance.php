@@ -7,6 +7,21 @@ use Codeception\Lib\Console\Output;
 class Acceptance extends \Codeception\Module
 {
 	/**
+	 * Check php error_log
+	 *
+	 * @param none
+	 */
+	public function dontSeeErrorInLog()
+	{
+		$logfile = getenv( "WP_ERROR_LOG" );
+		if ( file_exists( $logfile ) ) {
+			$logs = array_map( "trim", file( $logfile ) );
+			$this->error( $logs );
+			$this->assertEmpty( $logs );
+		}
+	}
+
+	/**
 	 * Check the page is not have image not found error.
 	 *
 	 * @param none

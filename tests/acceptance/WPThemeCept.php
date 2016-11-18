@@ -52,3 +52,5 @@ echo " ---\n";
 
 $I->seeTags();
 $I->SeeTheThemeSupports();
+
+$I->dontSeeErrorInLog();
