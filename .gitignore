@@ -1,6 +1,7 @@
 acceptance.suite.yml
 node_modules/
 npm-debug.log
+php.ini
 tests/_output/
 vendor/
 wp-cli-nightly.phar
