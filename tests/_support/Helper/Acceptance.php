@@ -7,6 +7,19 @@ use Codeception\Lib\Console\Output;
 class Acceptance extends \Codeception\Module
 {
 	/**
+	 * Take a screenshot
+	 *
+	 * @param none
+	 */
+	public function takeScreenshot( $url )
+	{
+		$wd = $this->getModule('WebDriver');
+		$wd->amOnPage( $url );
+		$filename = preg_replace( "/[\W]/", "-", $url ) . '.png';
+		$wd->_saveScreenshot( codecept_output_dir() . $filename );
+	}
+
+	/**
 	 * Check php error_log
 	 *
 	 * @param none
