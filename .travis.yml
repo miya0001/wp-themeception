@@ -8,7 +8,7 @@ env:
   global:
     - WP_ERROR_LOG=/tmp/wp-error.log
   matrix:
-    - WP_VERSION=nightly WP_THEME=twentyseventeen WP_PATH=/tmp/wp-tests
+    - WP_VERSION=nightly WP_THEME=default WP_PATH=/tmp/wp-tests
     - WP_VERSION=latest WP_THEME=twentysixteen WP_PATH=/tmp/wp-tests
 
 before_install:
