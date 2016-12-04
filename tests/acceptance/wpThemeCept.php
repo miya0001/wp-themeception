@@ -53,4 +53,16 @@ echo " ---\n";
 $I->seeTags();
 $I->SeeTheThemeSupports();
 
+$urls = array(
+	"/wp-admin/",
+	"/",
+);
+
+foreach ( $urls as $url ) {
+	echo " ---\n";
+	$I->takeScreenshot( $url );
+}
+
+echo " ---\n";
+
 $I->dontSeeErrorInLog();
