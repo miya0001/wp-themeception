@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "install-wp": "curl https://raw.githubusercontent.com/vccw-team/install-wp/master/install-wp.sh | /usr/bin/env bash",
-    "wp": "curl https://raw.githubusercontent.com/vccw-team/install-wp/master/run-wp.sh | /usr/bin/env bash",
+    "install-wp": "/usr/bin/env bash bin/install-wp.sh",
+    "wp": "/usr/bin/env bash bin/run-wp.sh",
     "init": "npm install && composer install",
     "test": "/usr/bin/env node bin/run-tests.js"
   },
