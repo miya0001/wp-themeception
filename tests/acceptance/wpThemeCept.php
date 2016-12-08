@@ -3,8 +3,8 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo( 'Reviewing the theme.' );
 
-$I->seeWpVersion();
-$I->seeCurrentTheme();
+$I->canSeeWpVersion();
+$I->canSeeCurrentTheme();
 
 $pages = array(
 	"/",
@@ -18,7 +18,6 @@ $pages = array(
 foreach ( $pages as $page ) {
 	echo " ---\n";
 	$I->amOnPage( $page );
-	$I->dontSeeNotice();
 	$I->cantSeeJsErrors();
 	$I->cantSeeImgErrors();
 }
@@ -36,7 +35,6 @@ foreach ( $pages as $page ) {
 	echo " ---\n";
 	$I->amOnPage( $page );
 	$I->cantSee404();
-	$I->cantSeeNotice();
 	$I->cantSeeJsErrors();
 	$I->cantSeeImgErrors();
 }
@@ -44,14 +42,13 @@ foreach ( $pages as $page ) {
 echo " ---\n";
 
 $I->amOnPage( "/this-test-is-checking-on-404" );
-$I->cantSeeNotice();
 $I->cantSeeJsErrors();
 $I->cantSeeImgErrors();
 
 echo " ---\n";
 
 $I->seeTags();
-$I->SeeTheThemeSupports();
+$I->canSeeTheThemeSupports();
 
 $urls = array(
 	"/wp-admin/",
@@ -65,4 +62,4 @@ foreach ( $urls as $url ) {
 
 echo " ---\n";
 
-$I->dontSeeErrorInLog();
+$I->cantSeeErrorInLog();
