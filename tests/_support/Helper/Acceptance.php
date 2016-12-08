@@ -136,11 +136,14 @@ class Acceptance extends \Codeception\Module
 
 		$wd = $this->getModule('WebDriver');
 		$wd->amOnPage( "/wp-admin/" );
+		$wd->wait( 1 );
 		$wd->fillField( "#user_login", $config['admin_user'] );
 		$wd->fillField( "#user_pass", $config['admin_pass'] );
+		$wd->wait( 1 );
 		$wd->click( "Log In" );
 
 		$wd->amOnPage( "/wp-admin/themes.php" );
+		$wd->wait( 1 );
 
 		$theme = $wd->grabAttributeFrom( ".theme.active:first-child", "data-slug" );
 		$this->assertTrue( !! $theme );

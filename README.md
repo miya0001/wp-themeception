@@ -22,9 +22,11 @@ It is one of the automated theme review projects.
 
 ## What is it testing?
 
-* Captures waning and notice of PHP.
+* Captures wanings and notices of PHP.
 * Captures JavaScript errors.
+* Check no 404 images.
 * Gets tags from `style.css` and check those features are available in the theme.
+* Takes a screenshot.
 
 ### Supported tags
 
