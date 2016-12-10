@@ -11,8 +11,6 @@ Lists tags from current theme and check the theme that has thoese features.
 * https://make.wordpress.org/themes/handbook/review/
 * https://make.wordpress.org/themes/handbook/review/required/theme-tags/
 
-It is one of the automated theme review projects.
-
 ## How it works
 
 * Installs and starts WordPress with `wp server`.
