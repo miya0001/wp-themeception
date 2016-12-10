@@ -9,7 +9,8 @@ env:
     - WP_VERSION=latest
     - WP_PATH=/tmp/wp-tests
   matrix:
-      - WP_THEME=twentyseventeen
+    include:
+      - env: WP_THEME=twentyseventeen
     allow_failures:
       - env: WP_THEME=https://wordpress.org/themes/download/courtyard.1.0.2.zip?nostats=1
       - env: WP_THEME=https://wordpress.org/themes/download/gbs-unique.3.1.zip?nostats=1
