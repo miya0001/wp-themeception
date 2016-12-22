@@ -112,3 +112,102 @@ $ npm test
 ```
 
 See example at [https://travis-ci.org/miya0001/wp-themeception](https://travis-ci.org/miya0001/wp-themeception).
+
+### Example
+
+```
+$ npm test
+
+wpThemeCept: Reviewing the theme.
+Signature: wpThemeCept
+Test: tests/acceptance/wpThemeCept.php
+Scenario --
+ I can see wp version
+  4.7
+ I can see current theme
+  blanche-lite
+ ---
+ I am on page "/"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/wp-admin/"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/wp-admin/themes.php"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/wp-admin/customize.php"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/wp-admin/widgets.php"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/wp-admin/nav-menus.php"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/?name=template-sticky"
+ I can dont see404
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/?name=sample-page"
+ I can dont see404
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/?s=hello"
+ I can dont see404
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/archives/date/2016/12"
+ I can dont see404
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/archives/category/aciform"
+ I can dont see404
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/dsc20050604_133440_34211"
+ I can dont see404
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I am on page "/this-test-is-checking-on-404"
+ I can dont see js errors
+ I can dont see img errors
+ ---
+ I see tags
+ I can see the theme supports
+  [ ] one-column
+  [ ] two-columns
+  [ ] right-sidebar
+  [✓] custom-background
+  [✓] custom-header
+  [✓] custom-colors
+  [✓] custom-logo
+  [✓] custom-menu
+  [ ] full-width-template
+  [✓] translation-ready
+  [✓] featured-images
+  [✓] threaded-comments
+  [ ] footer-widgets
+  [ ] blog
+  [ ] entertainment
+  [ ] photography
+ ---
+ I take screenshot "/wp-admin/"
+ ---
+ I take screenshot "/"
+ ---
+ I can dont see error in log
+ PASSED
+```
