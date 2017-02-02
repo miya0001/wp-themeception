@@ -9,26 +9,7 @@ env:
     - WP_VERSION=latest
     - WP_PATH=/tmp/wp-tests
   matrix:
-    - WP_THEME=https://wordpress.org/themes/download/courtyard.1.0.2.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/gbs-unique.3.1.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/blanche-lite.1.0.1.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/unifield.1.2.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/zopit.1.0.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/n-one.1.0.1.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/newspaper-x.1.0.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/sanse.1.0.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/kreatif.1.01.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/travelo.1.0.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/jacob.1.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/murray.0.9.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/lakshmi-lite.1.0.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/mediquip-plus.1.3.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/dankspangle.0.0.5.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/maketador.1.0.3.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/butterfly-theme.4.0.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/wptolik.1.0.2.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/darklowpress.1.0.5.zip?nostats=1
-    - WP_THEME=https://wordpress.org/themes/download/nitheme.1.1.zip?nostats=1
+    - WP_THEME=https://wordpress.org/themes/download/vanilla.1.2.2.zip?nostats=1
 
 before_install:
   - nvm install node
