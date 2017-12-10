@@ -9,6 +9,8 @@ env:
     - WP_VERSION=latest
     - WP_PATH=/tmp/wp-tests
   matrix:
+    - WP_THEME=mekhbahadur
+    - WP_THEME=event-listing
     - WP_THEME=twentyseventeen
     - WP_THEME=twentysixteen
     - WP_THEME=twentyfifteen
